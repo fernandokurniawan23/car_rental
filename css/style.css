@@ -1,0 +1,37 @@
+/* Gaya Login / Register*/
+
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-header h4 {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Input Group */
+.input-group .form-control {
+    border-right: none;
+}
+.input-group .btn-outline-secondary {
+    border-color: #ced4da;
+    color: var(--secondary-color);
+}

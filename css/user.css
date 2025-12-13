@@ -1,0 +1,104 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d; 
+    --text-dark: #343a40; 
+    --background-light: #f8f9fa;
+    --card-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+
+/* Base Style */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Navigation Bar */
+.main-nav {
+    background-color: #ffffff;
+    box-shadow: var(--card-shadow);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo-accent {
+    color: var(--primary-color);
+    font-weight: 900;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+/* Card Mobil */
+.car-card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow);
+}
+
+.car-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.car-card .card-body {
+    padding: 20px;
+}
+
+.card-title {
+    color: var(--text-dark);
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-text strong {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.card.unavailable {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.badge-unavailable {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Footer*/
+.main-footer {
+    background: var(--text-dark);
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+}

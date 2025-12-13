@@ -1,0 +1,135 @@
+:root {
+    --sidebar-width: 250px;
+    --sidebar-bg: #212529;
+    --sidebar-link: #adb5bd;
+    --sidebar-link-hover: #ffffff;
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --text-dark: #343a40;
+    --card-bg: #ffffff;
+}
+
+/* 1. Layout Dasar */
+#wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    transition: margin 0.3s ease-out, transform 0.3s ease-out; 
+}
+
+/* 2. Gaya Sidebar */
+#sidebar-wrapper {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-link);
+    padding-top: 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    transition: margin 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+}
+
+.list-group-item {
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-link);
+    border: none;
+    padding: 10px 1.25rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.list-group-item:hover, .list-group-item.active {
+    background-color: #343a40;
+    color: var(--sidebar-link-hover);
+    border-radius: 0;
+}
+
+/* 3. Gaya Main Content */
+#page-content-wrapper {
+    width: 100%;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* 4. Gaya Kartu */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-body h5 {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.card-body h3 {
+    font-size: 2.2rem;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* 5. Hamburger */
+.sidebar-toggle-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+/* 6. MEDIA QUERIES */
+
+@media (max-width: 768px) {
+    /* SIDEBAR */
+    #sidebar-wrapper {
+        margin-left: calc(0px - var(--sidebar-width)); 
+        position: fixed; 
+        height: 100vh;
+        z-index: 1030;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* WRAPPER: */
+    #wrapper.toggled {
+        transform: translateX(var(--sidebar-width));
+    }
+
+    /* SIDEBAR */
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0; 
+    }
+
+    /* MAIN CONTENT */
+    #page-content-wrapper {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .sidebar-toggle-btn {
+        display: block; 
+    }
+}
+
+@media (min-width: 769px) {
+    #sidebar-wrapper {
+        margin-left: 0 !important;
+        position: sticky;
+    }
+    #wrapper {
+        margin-left: 0 !important;
+        transform: none !important;
+    }
+}

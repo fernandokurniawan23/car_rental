@@ -54,48 +54,64 @@ ob_end_flush();
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Car Rental</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-light d-flex flex-column min-vh-100">
-<div class="container mt-5">
-    <div class="card mx-auto" style="max-width: 400px;">
-        <div class="card-body">
-            <h4 class="text-center mb-3">Login</h4>
+<body>
+<div class="login-wrapper">
+    <div class="card login-card mx-auto" style="max-width: 420px;">
+        <div class="login-header">
+            <h4><i class="fas fa-lock me-2"></i> Selamat Datang Kembali!</h4>
+        </div>
+
+        <div class="card-body p-4">
+            <h5 class="text-center mb-4 text-secondary">Akses Akun Anda</h5>
 
             <?php if (!empty($error)): ?>
-                <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+                <div class="alert alert-danger d-flex align-items-center"><i class="fas fa-exclamation-triangle me-2"></i> <?= htmlspecialchars($error) ?></div>
             <?php endif; ?>
 
             <?php if (isset($_GET['success'])): ?>
-                <div class="alert alert-success">Registrasi berhasil! Silakan login.</div>
+                <div class="alert alert-success d-flex align-items-center"><i class="fas fa-check-circle me-2"></i> Registrasi berhasil! Silakan login.</div>
             <?php endif; ?>
 
             <form method="post" autocomplete="off">
                 <div class="mb-3">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" required value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+                    <label for="email" class="form-label">Email</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Masukkan Email Anda" required value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+                    </div>
                 </div>
                 
-                <div class="mb-3">
-                    <label for="password">Password</label>
+                <div class="mb-4">
+                    <label for="password" class="form-label">Password</label>
                     <div class="input-group">
-                        <input type="password" name="password" id="password" class="form-control" required>
-                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Password" required>
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword" title="Tampilkan Password">
                             <i class="bi bi-eye-slash" id="toggleIcon"></i>
                         </button>
                     </div>
                 </div>
                 
-                <button type="submit" name="login" class="btn btn-primary w-100">Login</button>
-                <p class="mt-3 text-center">Belum punya akun? <a href="register.php">Daftar</a></p>
+                <button type="submit" name="login" class="btn btn-primary w-100 mb-3 fs-5 py-2">
+                    <i class="fas fa-sign-in-alt me-1"></i> Login
+                </button>
+                <p class="mt-3 text-center">
+                    Belum punya akun? <a href="register.php" class="text-primary fw-bold">Daftar Sekarang</a>
+                </p>
             </form>
         </div>
     </div>
 </div>
 
 <script>
+// Logika Toggle Password
 const toggleButton = document.getElementById('togglePassword');
 const passwordInput = document.getElementById('password');
 const icon = document.getElementById('toggleIcon');
@@ -115,5 +131,7 @@ toggleButton.addEventListener('click', function() {
 </script>
 
 <?php 
-include '../includes/footer.php'; 
+// include '../includes/footer.php'; 
 ?>
+</body>
+</html>
