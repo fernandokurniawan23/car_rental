@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 26 Okt 2025 pada 09.58
+-- Waktu pembuatan: 13 Des 2025 pada 03.09
 -- Versi server: 8.0.30
 -- Versi PHP: 8.3.22
 
@@ -45,7 +45,9 @@ CREATE TABLE `bookings` (
 INSERT INTO `bookings` (`id`, `user_id`, `car_id`, `start_date`, `end_date`, `total_price`, `status`, `created_at`) VALUES
 (6, 2, 4, '2025-10-25', '2025-10-27', 20000000.00, 'completed', '2025-10-25 09:52:27'),
 (7, 2, 4, '2025-10-25', '2025-10-26', 10000000.00, 'completed', '2025-10-25 10:03:36'),
-(8, 2, 6, '2025-10-26', '2025-10-28', 26000000.00, 'completed', '2025-10-26 06:20:16');
+(8, 2, 6, '2025-10-26', '2025-10-28', 26000000.00, 'completed', '2025-10-26 06:20:16'),
+(9, 2, 4, '2025-12-07', '2025-12-12', 50000000.00, 'pending', '2025-12-07 12:18:08'),
+(10, 2, 5, '2025-12-07', '2025-12-25', 270000000.00, 'approved', '2025-12-07 12:36:51');
 
 -- --------------------------------------------------------
 
@@ -71,9 +73,9 @@ CREATE TABLE `cars` (
 
 INSERT INTO `cars` (`id`, `name`, `brand`, `price_per_day`, `image`, `description`, `status`, `created_at`, `stock`) VALUES
 (3, 'avanza', 'toyota', 250000.00, 'avanza.jpeg', 'qwerty', 'available', '2025-10-24 14:54:35', 1),
-(4, 'Ferrari SF90 Stradale (2019)', 'Ferrari', 10000000.00, 'Ferrari SF90 Stradale (2019).webp', 'qwerty', 'available', '2025-10-25 09:51:10', 1),
-(5, 'Lamborghini Aventador', 'Lamborghini', 15000000.00, 'lambo.jpeg', 'ini mobil lambo', 'available', '2025-10-26 06:13:12', 1),
-(6, 'Porsche 911 Turbo S', 'Porsche', 13000000.00, 'porsche.jpg', 'ini mobil porsche', 'available', '2025-10-26 06:15:41', 2);
+(4, 'Ferrari SF90 Stradale (2019)', 'Ferrari', 10000000.00, 'Ferrari SF90 Stradale (2019).webp', 'qwertyu', 'available', '2025-10-25 09:51:10', 1),
+(5, 'Lamborghini Aventador', 'Lamborghini', 15000000.00, 'lambo.jpeg', 'ini mobil lamboo', 'unavailable', '2025-10-26 06:13:12', 0),
+(6, 'Porsche 911 Turbo S', 'Porsche', 13000000.00, 'porsche.jpg', 'ini mobil porschee', 'available', '2025-10-26 06:15:41', 2);
 
 -- --------------------------------------------------------
 
@@ -98,7 +100,10 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VA
 (1, 'Admin', 'admin@example.com', '$2y$10$mcYyc.BxU/ndhHeek7W9WOJpVIbqVQX54HmxIQK6TpirzlMsIT.le', 'admin', '2025-10-24 14:16:06'),
 (2, 'user', 'user@example.com', '$2y$10$tkXSccmcUjQiAdzOu4riYOMufDThPkURZAbHV14tNQgDNNbi8SKgi', 'user', '2025-10-24 14:53:10'),
 (3, 'test', 'test@gmail.com', '$2y$10$3BIQs/tJzljs6oR.HvxtTuNxY9m3JD9cpyyxSIGjtK9phCaDUxv.6', 'user', '2025-10-25 09:11:36'),
-(4, 'fernando', 'fernando@example.com', '$2y$10$XTfZ4LlbJOigTkPEKrHWu.C7//TcXl9F2z2P7We8apf0HpHA1jBWK', 'user', '2025-10-26 06:17:34');
+(4, 'Fernando Kurniawan', 'fernando@example.com', '$2y$10$XTfZ4LlbJOigTkPEKrHWu.C7//TcXl9F2z2P7We8apf0HpHA1jBWK', 'user', '2025-10-26 06:17:34'),
+(6, 'kurniawan', 'kurniawan@example.com', '$2y$10$v7NQCCgRvRjsDn7zzfgPIOdWi.DQqmWKXp8jSo8c8uB9D1wwIsRfy', 'user', '2025-12-07 12:40:37'),
+(7, 'fernando', 'fernandok@example.com', '$2y$10$uAdKoGyf3Yhr9jnAOMolteS4XNt2JfOSCCjHpAX3.payaHUfM6fd2', 'user', '2025-12-07 12:42:34'),
+(8, 'kurniawann', 'kurniawann@example.com', '$2y$10$oi4hoMNh.He9n1qM/BAR5eCO4hCkFJ9vjz18UUwTK6P1221pEEPTu', 'user', '2025-12-07 12:45:09');
 
 --
 -- Indexes for dumped tables
@@ -133,7 +138,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `cars`
@@ -145,7 +150,7 @@ ALTER TABLE `cars`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
